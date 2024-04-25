@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ZIM - Socket Test - Code Creativity</title>
+
+<!--
+
+TESTING 
+Go to the index.js and uncomment the app.use(express.static('public'))
+In the terminal CTRL `, run the app using: npm run or node index
+Then view this index.html file at http://localhost:7010/ 
+open up another tab at http://localhost:7010/
+press somewhere on the stage and the circle on both pages will go there 
+
+-->
+
+<!-- zimjs.com - JavaScript Canvas Framework -->
+
+<script type=module>
+
+import zim from "https://zimjs.org/cdn/016/zim_socket2";
+
+// See Docs under Frame for FIT, FILL, FULL, and TAG
+new Frame(FIT, 1024, 768, light, dark, ready);
+function ready() {
+    
+    // given F (Frame), S (Stage), W (width), H (height)
+    // put code here
+
+    const socket = new Socket("http://localhost:7010", "test");
+    socket.on("ready", ()=>{
+        
+        const circle = new Circle().center();
+        S.on("stagemousedown", ()=>{
+            circle.animate({x:F.mouseX, y:F.mouseY}, 1, "backOut");
+            socket.setProperties({x:F.mouseX, y:F.mouseY});
+        });
+        socket.on("data", (d)=>{
+            if (d.x != null) circle.animate({x:d.x, y:d.y}, 1, "backOut");
+        });        
+
+    });   
+        
+}
+
+</script>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+<body></body>
+</html>
