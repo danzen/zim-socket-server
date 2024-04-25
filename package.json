@@ -1,6 +1,6 @@
 {
   "name": "@zimjs/socket-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ZIM Socket Server for ZIM Socket Client @zimjs/socket - ZIM is a JavaScript Canvas Framework",
   "main": "index.js",
   "type": "module",
@@ -14,6 +14,17 @@
     "express": "^4.19.1",
     "socket.io": "^4.7.5"
   },
+  "keywords": [
+    "socket",
+    "multiuser",
+    "socketio",
+    "server",
+    "zim",
+    "zimjs",
+    "chat",
+    "avatars",
+    "rooms"
+  ],
   "devDependencies": {
     "nodemon": "^3.1.0"
   }
